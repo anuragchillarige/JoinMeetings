@@ -1,0 +1,51 @@
+<MainScreen>:
+    GridLayout:
+        cols: 2
+        rows: 1
+
+        FloatLayout:
+
+            GridLayout:
+                cols: 2
+                rows: 1
+
+                size_hint: (1, 0.05)
+                pos_hint: {"right": 0.95, "top": 0.4}
+
+                Label:
+                    text: "Meeting link"
+
+                TextInput:
+                    id: link
+                    text: ""
+                    multiline: False
+
+            GridLayout:
+                cols: 2
+                rows: 1
+
+                size_hint: (1, 0.05)
+                pos_hint: {"right": 0.95, "top": 0.6}
+
+                Label:
+                    text: "Meeting Time"
+
+                TextInput:
+                    id: time
+                    text: ""
+                    multiline: False
+
+        GridLayout:
+            rows: 3
+            cols: 1
+
+            Button:
+                text: "Add Meeting"
+                on_release: root.addMeeting()
+
+            Button:
+                text: "Finish"
+                on_release: root.finish()
+
+            Button:
+                text: "Meetings already in database"
