@@ -42,18 +42,20 @@ class MainScreen(Screen):
 
         addToFile(enteredTime, link)
 
+        def finish(self):
+            Window.close()
+            print("Window closed")
+            allMeetingInfo = findclasses.readFile().openAndReadFile()
+
+            joinClasses(allMeetingInfo)
+
 class Instructions(Screen):
     pass
 
 class ScreenMan(ScreenManager):
     pass
 
-    def finish(self):
-        Window.close()
-        print("Window closed")
-        allMeetingInfo = findclasses.readFile().openAndReadFile()
 
-        joinClasses(allMeetingInfo)
 
 myFile = Builder.load_file("main.kv")
 

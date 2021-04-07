@@ -11,15 +11,22 @@ ScreenMan:
 
         FloatLayout:
 
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             GridLayout:
-                cols: 2
-                rows: 1
+                cols: 1
+                rows: 2
 
-                size_hint: (1, 0.05)
-                pos_hint: {"right": 0.95, "top": 0.4}
+                size_hint: (0.5, 0.1)
+                pos_hint: {"right": 0.75, "top": 0.4}
 
                 Label:
                     text: "Meeting link"
+                    color: 0, 0, 0, 1
 
                 TextInput:
                     id: link
@@ -27,14 +34,15 @@ ScreenMan:
                     multiline: False
 
             GridLayout:
-                cols: 2
-                rows: 1
+                cols: 1
+                rows: 2
 
-                size_hint: (1, 0.05)
-                pos_hint: {"right": 0.95, "top": 0.6}
+                size_hint: (0.5, 0.1)
+                pos_hint: {"right": 0.75, "top": 0.6}
 
                 Label:
-                    text: "Meeting Time"
+                    text: "Meeting Time (HH:MM AM/PM)"
+                    color: 0, 0, 0, 1
 
                 TextInput:
                     id: time
@@ -45,16 +53,30 @@ ScreenMan:
             rows: 3
             cols: 1
 
+            canvas.before:
+                Color:
+                    rgba: 0,0,0,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
             Button:
                 text: "Add Meeting"
+                background_color: 2.7,2.7,2.7,1
+                color: 0, 0, 0, 1
                 on_release: root.addMeeting()
 
             Button:
                 text: "Finish"
+                background_color: 2.7,2.7,2.7,1
+                color: 0, 0, 0, 1
                 on_release: root.finish()
 
             Button:
                 text: "Meetings already in database"
+                background_color: 2.7,2.7,2.7,1
+                color: 0, 0, 0, 1
+                on_release: root.finish()
 
 <Instructions>:
     canvas.before:
@@ -70,14 +92,17 @@ ScreenMan:
 
         Label:
             text:
-                "Welcome to the automatic zoom joining app! Please enter your time in the format of HH:MM AM/PM. The link is self explanatory. If you have already used this application on the computer you are on, you can just click the 'Meetings already in database' button. "
+                "Welcome to the automatic zoom joining app! Please enter your time in the format of HH:MM AM/PM. If you have already used this application on the computer you are on, you can just click the 'Meetings already in database' button. "
             color: 0,0,0,1
             text_size: self.size
             halign: 'center'
             valign: 'bottom'
+            font_size: 40
         FloatLayout:
             Button:
                 text: "Continue"
+                color: 1,1,1,1
+                background_color: 0,0,0,1
                 size_hint: 0.2, 0.1
                 pos_hint: {"right": 0.6, "top": 0.3}
                 on_release:
