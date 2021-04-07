@@ -7,7 +7,7 @@ class readFile():
             for line in txtfile:
                 line = line.strip()
 
-                time = line[0 : line.index("|")]
+                time = line[0 : line.index("|")] + ":00"
                 link = line[line.index("|") + 1 : len(line)]
 
                 self.classesDict[time] = link

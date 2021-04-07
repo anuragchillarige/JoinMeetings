@@ -7,7 +7,7 @@ import findclasses
 import webbrowser
 
 link = ""
-time = ""
+enteredTime = ""
 
 
 def addToFile(timeIn, linkIn):
@@ -23,14 +23,17 @@ def joinClasses(meetingInfo):
         currentTime = currentDate.strftime(("%I:%M:%S"))
 
         for i in meetingInfo:
-            if currentTime == meetingInfo[i]:
-                print("Time for a meeting!!")
+            if currentTime == i:
+                print("Time for Meeting!")
 
 class MainScreen(Screen):
 
     def addMeeting(self):
         enteredTime = self.ids.time.text
         link = self.ids.link.text
+
+        self.ids.time.text = ""
+        self.ids.link.text = ""
 
         addToFile(enteredTime, link)
 
