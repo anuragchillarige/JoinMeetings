@@ -2,6 +2,7 @@ import datetime
 import time
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang import Builder
 from kivy.core.window import Window
 import findclasses
 import webbrowser
@@ -22,9 +23,13 @@ def joinClasses(meetingInfo):
         currentDay = currentDate.strftime("%a")
         currentTime = currentDate.strftime(("%I:%M:%S"))
 
+
         for i in meetingInfo:
+            print("Current time: " + currentTime)
+            print("Meeting time: " + i + "\n")
             if currentTime == i:
                 print("Time for Meeting!")
+                webbrowser.open(meetingInfo[i])
 
 class MainScreen(Screen):
 
@@ -37,6 +42,12 @@ class MainScreen(Screen):
 
         addToFile(enteredTime, link)
 
+class Instructions(Screen):
+    pass
+
+class ScreenMan(ScreenManager):
+    pass
+
     def finish(self):
         Window.close()
         print("Window closed")
@@ -44,11 +55,12 @@ class MainScreen(Screen):
 
         joinClasses(allMeetingInfo)
 
+myFile = Builder.load_file("main.kv")
 
 class MainApp(App):
 
     def build(self):
-        return MainScreen()
+        return myFile
 
 
 MainApp().run()

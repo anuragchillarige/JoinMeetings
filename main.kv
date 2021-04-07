@@ -1,4 +1,10 @@
+ScreenMan:
+    Instructions:
+    MainScreen:
+
 <MainScreen>:
+    name: "main"
+
     GridLayout:
         cols: 2
         rows: 1
@@ -49,3 +55,30 @@
 
             Button:
                 text: "Meetings already in database"
+
+<Instructions>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 1
+        rows: 2
+
+        Label:
+            text:
+                "Welcome to the automatic zoom joining app! Please enter your time in the format of HH:MM AM/PM. The link is self explanatory. If you have already used this application on the computer you are on, you can just click the 'Meetings already in database' button. "
+            color: 0,0,0,1
+            text_size: self.size
+            halign: 'center'
+            valign: 'bottom'
+        FloatLayout:
+            Button:
+                text: "Continue"
+                size_hint: 0.2, 0.1
+                pos_hint: {"right": 0.6, "top": 0.3}
+                on_release:
+                    app.root.current = "main"

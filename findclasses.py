@@ -8,9 +8,10 @@ class readFile():
                 line = line.strip()
 
                 time = line[0 : line.index("|")] + ":00"
+
                 link = line[line.index("|") + 1 : len(line)]
 
                 self.classesDict[time] = link
-
+        txtfile.close()
         return self.classesDict
 readFile().openAndReadFile()
