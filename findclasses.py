@@ -15,9 +15,5 @@ class readFile():
                 timeMeeting[time] = link
                 self.classesDict[day] = timeMeeting
 
-                print(self.classesDict)
-
         txtfile.close()
         return self.classesDict
-
-readFile().openAndReadFile()

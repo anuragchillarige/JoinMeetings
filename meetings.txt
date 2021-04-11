@@ -1,2 +1,1 @@
-Wednesday|01:00 PM|https://google.com
-Saturday|11:07 PM|https://google.com
+Saturday|11:31 PM|https://google.com

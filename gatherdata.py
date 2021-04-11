@@ -1,35 +1,19 @@
-import datetime
-import time
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 from kivy.core.window import Window
 import findclasses
-import webbrowser
+import main
+
 
 link = ""
 enteredTime = ""
 day = ""
 
-
 def addToFile(timeIn, linkIn, dayIn):
     with open("meetings.txt", "a") as file:
         file.write(dayIn + "|" + timeIn + "|" + linkIn + "\n")
         file.close()
-
-def joinClasses(meetingInfo):
-    while True:
-        time.sleep(1)
-        currentDate = datetime.datetime.now()
-        currentDay = currentDate.strftime("%A")
-        currentTime = currentDate.strftime(("%I:%M:%S %p"))
-
-
-        for i in meetingInfo:
-            if i == currentDay:
-                for j in i:
-                    if currentTime == j:
-                        webbrowser.open(i[j])
 
 class MainScreen(Screen):
 
@@ -48,7 +32,7 @@ class MainScreen(Screen):
         Window.close()
         allMeetingInfo = findclasses.readFile().openAndReadFile()
 
-        joinClasses(allMeetingInfo)
+        main.joinClasses(allMeetingInfo)
 
 class Instructions(Screen):
     pass
