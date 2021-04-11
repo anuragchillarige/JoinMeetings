@@ -30,7 +30,7 @@ class MainScreen(Screen):
 
     def finish(self):
         Window.close()
-        allMeetingInfo = findclasses.readFile().openAndReadFile
+        allMeetingInfo = findclasses.readFile().openAndReadFile()
 
         main.joinClasses(allMeetingInfo)
 
