@@ -22,15 +22,14 @@ def joinClasses(meetingInfo):
         time.sleep(1)
         currentDate = datetime.datetime.now()
         currentDay = currentDate.strftime("%A")
-        currentTime = currentDate.strftime(("%I:%M:%S"))
+        currentTime = currentDate.strftime(("%I:%M:%S %p"))
 
 
-        """for i in meetingInfo:
-            print("Current time: " + currentTime)
-            print("Meeting time: " + i + "\n")
-            if currentTime == i:
-                print("Time for Meeting!")
-                webbrowser.open(meetingInfo[i])"""
+        for i in meetingInfo:
+            if i == currentDay:
+                for j in i:
+                    if currentTime == j:
+                        webbrowser.open(i[j])
 
 class MainScreen(Screen):
 
