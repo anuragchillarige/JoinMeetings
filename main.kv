@@ -22,7 +22,7 @@ ScreenMan:
                 rows: 2
 
                 size_hint: (0.5, 0.1)
-                pos_hint: {"right": 0.75, "top": 0.4}
+                pos_hint: {"right": 0.75, "top": 0.3}
 
                 Label:
                     text: "Meeting link"
@@ -38,7 +38,7 @@ ScreenMan:
                 rows: 2
 
                 size_hint: (0.5, 0.1)
-                pos_hint: {"right": 0.75, "top": 0.6}
+                pos_hint: {"right": 0.75, "top": 0.9}
 
                 Label:
                     text: "Meeting Time (HH:MM AM/PM)"
@@ -46,6 +46,22 @@ ScreenMan:
 
                 TextInput:
                     id: time
+                    text: ""
+                    multiline: False
+
+            GridLayout:
+                cols: 1
+                rows: 2
+
+                size_hint: (0.5, 0.1)
+                pos_hint: {"right": 0.75, "top": 0.6}
+
+                Label:
+                    text: "Day Of Meeting"
+                    color: 0, 0, 0, 1
+
+                TextInput:
+                    id: day
                     text: ""
                     multiline: False
 
@@ -62,7 +78,7 @@ ScreenMan:
 
             Button:
                 text: "Add Meeting"
-                background_color: 2.7,2.7,2.7,1
+                background_color: (2.7,2.7,2.7,1)
                 color: 0, 0, 0, 1
                 on_release: root.addMeeting()
 
