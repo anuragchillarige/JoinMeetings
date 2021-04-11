@@ -14,10 +14,7 @@ def joinClasses(meetingInfo):
 
         for i in meetingInfo:
             if i == currentDay:
-                print("same day")
                 for j in meetingInfo[i]:
-                    print(j + ": j")
-                    print(meetingInfo[i][j]+ ": meetingInfo[i][j]")
                     if currentTime == j:
-                        print("same time")
+                        print("Time for meeting!")
                         webbrowser.open(meetingInfo[i][j])
