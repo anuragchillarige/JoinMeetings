@@ -9,9 +9,6 @@ def joinClasses(meetingInfo):
         currentDay = currentDate.strftime("%A")
         currentTime = currentDate.strftime(("%I:%M:%S %p"))
 
-        print("Current Day: " + currentDay)
-        print("Current time: " + currentTime)
-
         for i in meetingInfo:
             if i == currentDay:
                 for j in meetingInfo[i]:
