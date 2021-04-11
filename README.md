@@ -11,13 +11,15 @@ open that link at the time given **all the time**.
 
 ## Installation
 On the right, a realeases tab shows. Download the 
-**__JoinMeetings.zip__** file and unzip it. 
+**__JoinMeetingsMac.zip__** or **__JoinMeetingsWindows.zip__** file and unzip it. 
 
 #### For Mac/Linux:
+Download the **__JoinMeetingsMac.zip__** file.
 Double click on the executable file or go to the directory and 
 run `./JoinMeetings` in the terminal
 
 #### For Windows: 
+Download the **__JoinMeetingsWindows.zip__** file.
 Click on the JoinMeetings.exe file. 
 
 ##### Made by Anurag Chillarige
