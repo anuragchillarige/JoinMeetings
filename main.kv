@@ -1,6 +1,10 @@
+#: import CardTransition kivy.uix.screenmanager.CardTransition
+
 ScreenMan:
     Instructions:
     MainScreen:
+    ViewMeetingsScreen:
+    RemoveMeetingsScreen:
 
 <MainScreen>:
     name: "main"
@@ -22,7 +26,7 @@ ScreenMan:
                 rows: 2
 
                 size_hint: (0.5, 0.1)
-                pos_hint: {"right": 0.75, "top": 0.3}
+                pos_hint: {"right": 0.75, "top": 0.4}
 
                 Label:
                     text: "Meeting link"
@@ -38,7 +42,7 @@ ScreenMan:
                 rows: 2
 
                 size_hint: (0.5, 0.1)
-                pos_hint: {"right": 0.75, "top": 0.9}
+                pos_hint: {"right": 0.75, "top": 0.8}
 
                 Label:
                     text: "Meeting Time (HH:MM AM/PM)"
@@ -65,13 +69,20 @@ ScreenMan:
                     text: ""
                     multiline: False
 
+            Label:
+                size_hint: (0.5, 0.1)
+                pos_hint: {"right": 0.75, "top": 0.2}
+                id: messageLabel
+                text: ""
+                color: 0,0,0,1
+
         GridLayout:
             rows: 3
             cols: 1
 
             canvas.before:
                 Color:
-                    rgba: 0,0,0,1
+                    rgba: 0.95,0.95,0.95,1
                 Rectangle:
                     pos: self.pos
                     size: self.size
@@ -88,11 +99,25 @@ ScreenMan:
                 color: 0, 0, 0, 1
                 on_release: root.finish()
 
-            Button:
-                text: "Meetings already in database"
-                background_color: 2.7,2.7,2.7,1
-                color: 0, 0, 0, 1
-                on_release: root.finish()
+            GridLayout:
+                cols: 2
+                rows: 1
+
+                Button:
+                    text: "View added meetings"
+                    background_color: 2.7, 2.7, 2.7, 1
+                    color: 0, 0, 0, 1
+                    on_release:
+                        app.root.current = "ViewMeetings"
+                        root.manager.transition.direction = "left"
+
+                Button:
+                    text: "Remove meetings"
+                    background_color: 2.7, 2.7, 2.7, 1
+                    color: 0, 0, 0, 1
+                    on_release:
+                        app.root.current = "RemoveMeetings"
+                        root.manager.transition.direction = "left"
 
 <Instructions>:
     canvas.before:
@@ -114,6 +139,7 @@ ScreenMan:
             halign: 'center'
             valign: 'bottom'
             font_size: 40
+
         FloatLayout:
             Button:
                 text: "Continue"
@@ -123,3 +149,24 @@ ScreenMan:
                 pos_hint: {"right": 0.6, "top": 0.3}
                 on_release:
                     app.root.current = "main"
+                    root.manager.transition.direction = "left"
+
+<ViewMeetingsScreen>:
+    name: "ViewMeetings"
+
+    FloatLayout:
+        Label:
+            text: root.listMeetings()
+        Button:
+            text: "Go Back"
+            size_hint: 0.2, 0.05
+            pos_hint: {"right": 0.6, "top": 0.3}
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+<RemoveMeetingsScreen>:
+    name: "RemoveMeetings"
+    Label:
+        text: "Remove meetings here"
